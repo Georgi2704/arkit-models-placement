@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B9CCF0928EF238C00384361 /* toy_drummer.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CCF0628EF238C00384361 /* toy_drummer.usdz */; };
+		8B9CCF0A28EF238C00384361 /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CCF0728EF238C00384361 /* toy_biplane.usdz */; };
+		8B9CCF0B28EF238C00384361 /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CCF0828EF238C00384361 /* toy_robot_vintage.usdz */; };
+		8B9CCF0D28EF23B900384361 /* ViFit.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CCF0C28EF23B900384361 /* ViFit.usdz */; };
+		8B9CCF0F28EF2AA800384361 /* fender_stratocaster.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 8B9CCF0E28EF2AA800384361 /* fender_stratocaster.usdz */; };
+		8B9CCF1128EF59A100384361 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CCF1028EF59A100384361 /* Model.swift */; };
 		8B9F6D6728E5C5F500B23ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F6D6628E5C5F500B23ECE /* AppDelegate.swift */; };
 		8B9F6D6928E5C5F500B23ECE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F6D6828E5C5F500B23ECE /* ContentView.swift */; };
 		8B9F6D6B28E5C5F500B23ECE /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F6D6A28E5C5F500B23ECE /* Experience.rcproject */; };
@@ -15,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B9CCF0628EF238C00384361 /* toy_drummer.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = toy_drummer.usdz; path = ../../../../../Downloads/toy_drummer.usdz; sourceTree = "<group>"; };
+		8B9CCF0728EF238C00384361 /* toy_biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = toy_biplane.usdz; path = ../../../../../Downloads/toy_biplane.usdz; sourceTree = "<group>"; };
+		8B9CCF0828EF238C00384361 /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = toy_robot_vintage.usdz; path = ../../../../../Downloads/toy_robot_vintage.usdz; sourceTree = "<group>"; };
+		8B9CCF0C28EF23B900384361 /* ViFit.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = ViFit.usdz; path = ../../../../../Downloads/ViFit.usdz; sourceTree = "<group>"; };
+		8B9CCF0E28EF2AA800384361 /* fender_stratocaster.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = fender_stratocaster.usdz; path = ../../../../../Downloads/fender_stratocaster.usdz; sourceTree = "<group>"; };
+		8B9CCF1028EF59A100384361 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8B9F6D6328E5C5F500B23ECE /* AR_Tutorial_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AR_Tutorial_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9F6D6628E5C5F500B23ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B9F6D6828E5C5F500B23ECE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +46,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B9CCF0528EF216400384361 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B9CCF0E28EF2AA800384361 /* fender_stratocaster.usdz */,
+				8B9CCF0C28EF23B900384361 /* ViFit.usdz */,
+				8B9CCF0728EF238C00384361 /* toy_biplane.usdz */,
+				8B9CCF0628EF238C00384361 /* toy_drummer.usdz */,
+				8B9CCF0828EF238C00384361 /* toy_robot_vintage.usdz */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8B9F6D5A28E5C5F500B23ECE = {
 			isa = PBXGroup;
 			children = (
@@ -53,11 +77,13 @@
 		8B9F6D6528E5C5F500B23ECE /* AR_Tutorial_2 */ = {
 			isa = PBXGroup;
 			children = (
+				8B9CCF0528EF216400384361 /* Models */,
 				8B9F6D6628E5C5F500B23ECE /* AppDelegate.swift */,
 				8B9F6D6828E5C5F500B23ECE /* ContentView.swift */,
 				8B9F6D6A28E5C5F500B23ECE /* Experience.rcproject */,
 				8B9F6D6C28E5C5F600B23ECE /* Assets.xcassets */,
 				8B9F6D6E28E5C5F600B23ECE /* Preview Content */,
+				8B9CCF1028EF59A100384361 /* Model.swift */,
 			);
 			path = AR_Tutorial_2;
 			sourceTree = "<group>";
@@ -128,8 +154,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9CCF0D28EF23B900384361 /* ViFit.usdz in Resources */,
+				8B9CCF0F28EF2AA800384361 /* fender_stratocaster.usdz in Resources */,
 				8B9F6D7028E5C5F600B23ECE /* Preview Assets.xcassets in Resources */,
+				8B9CCF0B28EF238C00384361 /* toy_robot_vintage.usdz in Resources */,
 				8B9F6D6D28E5C5F600B23ECE /* Assets.xcassets in Resources */,
+				8B9CCF0A28EF238C00384361 /* toy_biplane.usdz in Resources */,
+				8B9CCF0928EF238C00384361 /* toy_drummer.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +174,7 @@
 				8B9F6D6928E5C5F500B23ECE /* ContentView.swift in Sources */,
 				8B9F6D6728E5C5F500B23ECE /* AppDelegate.swift in Sources */,
 				8B9F6D6B28E5C5F500B23ECE /* Experience.rcproject in Sources */,
+				8B9CCF1128EF59A100384361 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +313,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +345,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

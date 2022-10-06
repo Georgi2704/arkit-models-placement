@@ -11,10 +11,10 @@ import ARKit
 
 struct ContentView : View {
     @State private var isPlacementEnabled = false
-    @State private var selectedModel: String?
-    @State private var modelConfirmedForPlacement: String?
+    @State private var selectedModel: Model?
+    @State private var modelConfirmedForPlacement: Model?
     
-    private var models: [String] {
+    private var models: [Model] {
         //Dynamically get our model filenames
         let filemanager = FileManager.default
         guard let path = Bundle.main.resourcePath,
@@ -24,11 +24,12 @@ struct ContentView : View {
             return []
         }
        
-        var availableModels: [String] = []
+        var availableModels: [Model] = []
         for filename in files where filename.hasSuffix("usdz"){
             let modelName = filename.replacingOccurrences(of: ".usdz",
                                                           with: "")
-            availableModels.append(modelName)
+            let model = Model(modelName: modelName)
+            availableModels.append(model)
         }
         
         return availableModels
@@ -57,7 +58,7 @@ struct ContentView : View {
 }
 
 struct ARViewContainer: UIViewRepresentable {
-    @Binding var modelConfirmedForPlacement: String?
+    @Binding var modelConfirmedForPlacement: Model?
     
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -77,14 +78,17 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {
         print("Updating UIVIEW")
-        if let modelName = self.modelConfirmedForPlacement {
-            print("DEBUG: adding model to scene - \(modelName)")
-            let filename = modelName + ".usdz"
-            let modelEntity = try! ModelEntity.loadModel(named: filename)
-            let anchorEntity = AnchorEntity(plane: .any)
-            anchorEntity.addChild(modelEntity)
-            
-            uiView.scene.addAnchor(anchorEntity)
+        if let model = self.modelConfirmedForPlacement {
+            if let modelEntity = model.modelEntity{
+                print("DEBUG: adding model to scene - \(model.modelName)")
+                
+                let anchorEntity = AnchorEntity(plane: .any)
+                anchorEntity.addChild(modelEntity.clone(recursive: true))
+                uiView.scene.addAnchor(anchorEntity)
+            }
+            else{
+                print("ERROR: Unable to load modelEntity - \(model.modelName)")
+            }
             
             DispatchQueue.main.async {
                 self.modelConfirmedForPlacement = nil
@@ -104,9 +108,9 @@ struct ContentView_Previews : PreviewProvider {
 
 struct ModelPickerView: View {
     @Binding var isPlacementEnabled: Bool
-    @Binding var selectedModel: String?
+    @Binding var selectedModel: Model?
     
-    var models: [String]
+    var models: [Model]
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack(spacing: 10){
@@ -116,11 +120,11 @@ struct ModelPickerView: View {
                         action: {
                             self.isPlacementEnabled = true
                             self.selectedModel = self.models[index]
-                            print("DEBUG: selected model - \(self.models[index])")
+                            print("DEBUG: selected model - \(self.models[index].modelName)")
                             
                     },
                         label: {
-                            Image(uiImage: UIImage(named: self.models[index])!)
+                            Image(uiImage: self.models[index].image)
                                 .resizable()
                                 .frame(height: 80)
                                 .aspectRatio(
@@ -140,8 +144,8 @@ struct ModelPickerView: View {
 
 struct PlacementButtonsView: View {
     @Binding var isPlacementEnabled: Bool
-    @Binding var selectedModel: String?
-    @Binding var modelConfirmedForPlacement: String?
+    @Binding var selectedModel: Model?
+    @Binding var modelConfirmedForPlacement: Model?
     
     var body: some View {
         HStack {
